@@ -2,12 +2,12 @@ import React from 'react'
 
 import { createDrawerNavigator } from '@react-navigation/drawer'
 
-import { GroupScheduleScreen } from '@app/features/group_schedule'
+import { GroupScheduleScreen } from '@app/features/groupSchedule'
 import { HomeScreen } from '@app/features/home'
 import { LabsScreen } from '@app/features/labs'
 
-import { HomeNavigationParams } from './navigation_params'
-import { HomeScreenNames } from './screen_names'
+import { HomeNavigationParams } from './NavigationParams'
+import { HomeScreenNames } from './ScreenNames'
 
 const Stack = createDrawerNavigator<HomeNavigationParams>()
 

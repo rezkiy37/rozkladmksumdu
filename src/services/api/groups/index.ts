@@ -1,5 +1,5 @@
 import { endpoints } from '@app/constants/endpoints'
-import restApiService from '@app/services/api/rest_api'
+import restApiService from '@app/services/api/restApi'
 import { Group } from '@app/types/entities'
 
 const groupsApiService = {

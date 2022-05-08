@@ -1,1 +1,1 @@
-export { default as LabsScreen } from './screens/labs'
+export { default as LabsScreen } from './screens/Labs'

@@ -1,4 +1,4 @@
-import { HomeScreenNames } from './screen_names'
+import { HomeScreenNames } from './ScreenNames'
 
 export type HomeNavigationParams = {
   [HomeScreenNames.Home]: undefined
