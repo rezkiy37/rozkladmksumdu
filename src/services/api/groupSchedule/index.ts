@@ -1,7 +1,7 @@
 import restApiService from '../restApi'
 
 import { endpoints } from '@app/constants/endpoints'
-import type { Schedule } from '@app/types/entities'
+import { Schedule } from '@app/types/entities'
 
 const groupScheduleApiService = {
   async getGroupSchedule(groupId: string) {

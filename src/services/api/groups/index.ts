@@ -1,7 +1,7 @@
 import restApiService from '../restApi'
 
 import { endpoints } from '@app/constants/endpoints'
-import type { Group } from '@app/types/entities'
+import { Group } from '@app/types/entities'
 
 const groupsApiService = {
   async getGroups() {

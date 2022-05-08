@@ -1,7 +1,7 @@
 import restApiService from '../restApi'
 
 import { endpoints } from '@app/constants/endpoints'
-import type { ScheduleChange } from '@app/types/entities'
+import { ScheduleChange } from '@app/types/entities'
 
 const scheduleChangesApiService = {
   async getScheduleChanges() {

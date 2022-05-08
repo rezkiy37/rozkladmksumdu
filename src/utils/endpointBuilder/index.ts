@@ -1,4 +1,4 @@
-import type { UrlParams } from '@app/types/api'
+import { UrlParams } from '@app/types/api'
 
 export const endpointBuilder = (
   endpoint: string,

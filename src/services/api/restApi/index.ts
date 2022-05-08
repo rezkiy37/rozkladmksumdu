@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 import { baseUrl } from '@app/constants/baseUrl'
-import type { ServerResponse } from '@app/types/api/ServerResponse'
-import type { UrlParams } from '@app/types/api/UrlParams'
+import { ServerResponse } from '@app/types/api/ServerResponse'
+import { UrlParams } from '@app/types/api/UrlParams'
 import { endpointBuilder } from '@app/utils/endpointBuilder'
 
 const restApiService = {
