@@ -1,8 +1,9 @@
 import axios from 'axios'
 
+import type { ServerResponse } from '@app/types/api/ServerResponse'
+import type { UrlParams } from '@app/types/api/UrlParams'
 import { Config } from '@app/utils/config'
-
-import type { ServerResponse } from './../types'
+import { endpointBuilder } from '@app/utils/endpointBuilder'
 
 const restApiService = {
   get axiosInstance() {
@@ -11,8 +12,10 @@ const restApiService = {
     })
   },
 
-  get<T>(url: string) {
-    return this.axiosInstance.get<ServerResponse<T>>(url)
+  get<T>(endpoint: string, params: Nullable<UrlParams> = null) {
+    endpoint = endpointBuilder(endpoint, params)
+
+    return this.axiosInstance.get<ServerResponse<T>>(endpoint)
   },
 }
 
