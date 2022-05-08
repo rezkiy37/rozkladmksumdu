@@ -1,12 +1,12 @@
 import restApiService from '../restApi'
 
+import { endpoints } from '@app/constants/endpoints'
 import type { ScheduleChange } from '@app/types/entities'
-import { Config } from '@app/utils/config'
 
 const scheduleChangesApiService = {
   async getScheduleChanges() {
     const response = await restApiService.get<ScheduleChange[]>(
-      Config.endpoints.scheduleChanges,
+      endpoints.scheduleChanges,
     )
 
     return response.data.data

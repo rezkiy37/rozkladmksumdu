@@ -1,14 +1,14 @@
 import axios from 'axios'
 
+import { baseUrl } from '@app/constants/baseUrl'
 import type { ServerResponse } from '@app/types/api/ServerResponse'
 import type { UrlParams } from '@app/types/api/UrlParams'
-import { Config } from '@app/utils/config'
 import { endpointBuilder } from '@app/utils/endpointBuilder'
 
 const restApiService = {
   get axiosInstance() {
     return axios.create({
-      baseURL: Config.apiBaseUrl,
+      baseURL: baseUrl,
     })
   },
 
