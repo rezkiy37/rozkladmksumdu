@@ -6,9 +6,8 @@ import { GroupScheduleScreen } from '@app/features/group_schedule'
 import { HomeScreen } from '@app/features/home'
 import { LabsScreen } from '@app/features/labs'
 
+import { HomeNavigationParams } from './navigation_params'
 import { HomeScreenNames } from './screen_names'
-
-import type { HomeNavigationParams } from './navigation_params'
 
 const Stack = createDrawerNavigator<HomeNavigationParams>()
 
