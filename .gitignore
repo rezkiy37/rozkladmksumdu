@@ -62,3 +62,4 @@ buck-out/
 Gemfile.lock
 yarn.lock
 ios/Podfile.lock
+.env

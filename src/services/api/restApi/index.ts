@@ -1,15 +1,13 @@
 import axios from 'axios'
 
+import { Config } from '@app/utils/config'
+
 import type { ServerResponse } from './../types'
 
 const restApiService = {
-  get baseURL() {
-    return 'https://rozklad.mksumdu.info/api'
-  },
-
   get axiosInstance() {
     return axios.create({
-      baseURL: this.baseURL,
+      baseURL: Config.apiBaseUrl,
     })
   },
 
