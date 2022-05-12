@@ -49,6 +49,7 @@ module.exports = {
       },
     ],
     'import/no-cycle': 'error',
+    'import/named': 'off',
     'import/newline-after-import': 'error',
     'import/no-unresolved': 'off',
     'import/namespace': 'off',
