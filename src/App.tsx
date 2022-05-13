@@ -4,11 +4,11 @@ import { NativeBaseProvider } from 'native-base'
 
 import { StoreProvider } from '@app/contexts/StoreContext'
 import AppNavigation from '@app/navigation/app'
-import { initialStore } from '@app/store/initialStore'
+import { store } from '@app/store'
 
 const App: React.FC = () => {
   return (
-    <StoreProvider value={initialStore}>
+    <StoreProvider value={store}>
       <NativeBaseProvider>
         <AppNavigation />
       </NativeBaseProvider>
