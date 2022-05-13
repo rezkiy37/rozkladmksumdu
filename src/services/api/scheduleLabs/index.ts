@@ -1,6 +1,6 @@
 import { endpoints } from '@app/constants/endpoints'
+import { Lab } from '@app/models/Lab'
 import restApiService from '@app/services/api/restApi'
-import { Lab } from '@app/types/entities'
 
 const scheduleLabsApiService = {
   async getScheduleLabs() {
