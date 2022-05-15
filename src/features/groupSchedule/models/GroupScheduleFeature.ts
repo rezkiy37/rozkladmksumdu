@@ -13,11 +13,11 @@ export const GroupScheduleFeatureModel = types
     groupSchedules: types.array(ScheduleModel),
   })
   .actions(self => {
-    function setGroup(group: Group) {
+    function setSelectedGroup(group: Group) {
       self.selectedGroup = group
     }
 
-    function clearGroup() {
+    function clearSelectedGroup() {
       self.selectedGroup = null
     }
 
@@ -29,7 +29,12 @@ export const GroupScheduleFeatureModel = types
       self.groupSchedules.clear()
     }
 
-    return { setGroup, clearGroup, setGroupSchedules, clearGroupSchedules }
+    return {
+      setSelectedGroup,
+      clearSelectedGroup,
+      setGroupSchedules,
+      clearGroupSchedules,
+    }
   })
 
 export type GroupScheduleFeature = Instance<typeof GroupScheduleFeatureModel>
