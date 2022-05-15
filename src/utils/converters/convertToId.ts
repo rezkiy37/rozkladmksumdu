@@ -1,3 +1,5 @@
+import { noDefinedFields } from '@app/constants/noDefinedFields'
+
 export const convertToId = (value: any): string => {
-  return value?.toString() ?? 'id-is-not-defined'
+  return value?.toString() ?? noDefinedFields.id
 }
