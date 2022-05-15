@@ -84,5 +84,6 @@ module.exports = {
       },
     ],
     'react/jsx-newline': 'error',
+    'react/jsx-no-bind': 'error',
   },
 }
