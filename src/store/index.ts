@@ -8,6 +8,7 @@ import { StoreModel } from '@app/models/Store'
 
 export const store = StoreModel.create({
   home: homeFeatureInitialState,
+  // @ts-expect-error
   groupSchedule: groupScheduleFeatureInitialState,
   labs: labsInitialState,
 })
