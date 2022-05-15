@@ -12,7 +12,7 @@ const restApiService = {
     })
   },
 
-  get<T, M = void>(endpoint: string, params: Nullable<UrlParams> = null) {
+  get<T, M = {}>(endpoint: string, params: Nullable<UrlParams> = null) {
     endpoint = buildEndpoint(endpoint, params)
 
     return this.axiosInstance.get<ServerResponse<T, M>>(endpoint)

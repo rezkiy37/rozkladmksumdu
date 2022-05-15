@@ -4,7 +4,8 @@ import { ApiModel, initialState as apiInitialState } from '@app/models/Api'
 import { Group, GroupModel } from '@app/models/Group'
 import { ScheduleChange, ScheduleChangeModel } from '@app/models/ScheduleChange'
 import { groupsApiService, scheduleChangesApiService } from '@app/services/api'
-import { convertToGroup, convertToScheduleChange } from '@app/utils/converters'
+import { GetGroupsResult } from '@app/services/api/groups'
+import { GetScheduleChangesResult } from '@app/services/api/scheduleChanges'
 
 import { ModelName } from './ModelName'
 
@@ -40,9 +41,9 @@ export const HomeFeatureModel = types
       self.api.startLoading()
 
       try {
-        const groups: Group[] = yield groupsApiService.getGroups()
+        const result: GetGroupsResult = yield groupsApiService.getGroups()
 
-        setGroups(groups.map(convertToGroup))
+        setGroups(result.data)
       } catch (e) {
         const errorMessage = String(e)
 
@@ -56,10 +57,10 @@ export const HomeFeatureModel = types
       self.api.startLoading()
 
       try {
-        const scheduleChanges: ScheduleChange[] =
+        const result: GetScheduleChangesResult =
           yield scheduleChangesApiService.getScheduleChanges()
 
-        setScheduleChanges(scheduleChanges.map(convertToScheduleChange))
+        setScheduleChanges(result.data)
       } catch (e) {
         const errorMessage = String(e)
 
@@ -70,9 +71,7 @@ export const HomeFeatureModel = types
     })
 
     return {
-      setGroups,
       clearGroups,
-      setScheduleChanges,
       clearScheduleChanges,
       uploadScheduleChanges,
       uploadGroups,

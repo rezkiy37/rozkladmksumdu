@@ -6,10 +6,10 @@ import {
   GroupScheduleModel,
   initialState as groupScheduleInitialState,
 } from '@app/models/GroupSchedule'
-import { Schedule } from '@app/models/Schedule'
 import { Store } from '@app/models/Store'
 import { groupScheduleApiService } from '@app/services/api'
-import { convertToSchedule } from '@app/utils/converters'
+import { GetGroupScheduleResult } from '@app/services/api/groupSchedule'
+import { ScheduleType } from '@app/types/Entities/ScheduleType'
 
 import { ModelName } from './ModelName'
 
@@ -30,6 +30,12 @@ export const GroupScheduleFeatureModel = types
   .model(ModelName.GroupScheduleFeature, {
     api: ApiModel,
     selectedGroup: SelectedGroupReference,
+    scheduleType: types.maybeNull(
+      types.enumeration(ModelName.ScheduleType, [
+        ScheduleType.Numerator,
+        ScheduleType.Denominator,
+      ]),
+    ),
     groupSchedule: GroupScheduleModel,
   })
   .actions(self => {
@@ -41,6 +47,14 @@ export const GroupScheduleFeatureModel = types
       self.selectedGroup = null
     }
 
+    function setScheduleType(scheduleType: ScheduleType) {
+      self.scheduleType = scheduleType
+    }
+
+    function clearScheduleType() {
+      self.scheduleType = null
+    }
+
     const uploadGroupSchedules = flow(function* () {
       self.api.startLoading()
 
@@ -49,13 +63,15 @@ export const GroupScheduleFeatureModel = types
           throw new Error('There is not selected group')
         }
 
-        const groupSchedules: Schedule[] =
+        const result: GetGroupScheduleResult =
           yield groupScheduleApiService.getGroupSchedule(self.selectedGroup.id)
 
-        groupSchedules.forEach(groupSchedule => {
+        setScheduleType(result.meta.scheduleType)
+
+        result.data.forEach(groupSchedule => {
           self.groupSchedule.pushDaySchedule(
             groupSchedule.dayOfWeek,
-            convertToSchedule(groupSchedule),
+            groupSchedule,
           )
         })
       } catch (e) {
@@ -70,6 +86,7 @@ export const GroupScheduleFeatureModel = types
     return {
       setSelectedGroup,
       clearSelectedGroup,
+      clearScheduleType,
       uploadGroupSchedules,
     }
   })
@@ -79,5 +96,6 @@ export type GroupScheduleFeature = Instance<typeof GroupScheduleFeatureModel>
 export const initialState = GroupScheduleFeatureModel.create({
   api: apiInitialState,
   selectedGroup: null,
+  scheduleType: null,
   groupSchedule: groupScheduleInitialState,
 })

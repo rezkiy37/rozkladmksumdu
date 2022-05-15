@@ -1,4 +1,4 @@
-export type ServerResponse<T, M> = {
+export type ServerResponse<T, M = {}> = {
   data: T
   meta: M
 }

@@ -11,3 +11,5 @@ export { convertToScheduleChange } from './convertToScheduleChange'
 export { convertToSubject } from './convertToSubject'
 
 export { convertToTeacher } from './convertToTeacher'
+
+export { convertToScheduleType } from './convertToScheduleType'
