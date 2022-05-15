@@ -2,7 +2,11 @@ import { flow, Instance, types, getRoot } from 'mobx-state-tree'
 
 import { ApiModel, initialState as apiInitialState } from '@app/models/Api'
 import { Group, GroupModel } from '@app/models/Group'
-import { Schedule, ScheduleModel } from '@app/models/Schedule'
+import {
+  GroupScheduleModel,
+  initialState as groupScheduleInitialState,
+} from '@app/models/GroupSchedule'
+import { Schedule } from '@app/models/Schedule'
 import { Store } from '@app/models/Store'
 import { groupScheduleApiService } from '@app/services/api'
 import { convertToSchedule } from '@app/utils/converters'
@@ -26,8 +30,7 @@ export const GroupScheduleFeatureModel = types
   .model(ModelName.GroupScheduleFeature, {
     api: ApiModel,
     selectedGroup: SelectedGroupReference,
-    // TODO: Rework to days and day schedule
-    groupSchedules: types.array(ScheduleModel),
+    groupSchedule: GroupScheduleModel,
   })
   .actions(self => {
     function setSelectedGroup(group: Group) {
@@ -36,14 +39,6 @@ export const GroupScheduleFeatureModel = types
 
     function clearSelectedGroup() {
       self.selectedGroup = null
-    }
-
-    function setGroupSchedules(groupSchedules: Schedule[]) {
-      self.groupSchedules.replace(groupSchedules)
-    }
-
-    function clearGroupSchedules() {
-      self.groupSchedules.clear()
     }
 
     const uploadGroupSchedules = flow(function* () {
@@ -57,7 +52,12 @@ export const GroupScheduleFeatureModel = types
         const groupSchedules: Schedule[] =
           yield groupScheduleApiService.getGroupSchedule(self.selectedGroup.id)
 
-        setGroupSchedules(groupSchedules.map(convertToSchedule))
+        groupSchedules.forEach(groupSchedule => {
+          self.groupSchedule.pushDaySchedule(
+            groupSchedule.dayOfWeek,
+            convertToSchedule(groupSchedule),
+          )
+        })
       } catch (e) {
         const errorMessage = String(e)
 
@@ -70,8 +70,6 @@ export const GroupScheduleFeatureModel = types
     return {
       setSelectedGroup,
       clearSelectedGroup,
-      setGroupSchedules,
-      clearGroupSchedules,
       uploadGroupSchedules,
     }
   })
@@ -81,5 +79,5 @@ export type GroupScheduleFeature = Instance<typeof GroupScheduleFeatureModel>
 export const initialState = GroupScheduleFeatureModel.create({
   api: apiInitialState,
   selectedGroup: null,
-  groupSchedules: [],
+  groupSchedule: groupScheduleInitialState,
 })

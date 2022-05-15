@@ -7,5 +7,6 @@ export enum ModelName {
   ScheduleChange = 'ScheduleChange',
   Lab = 'Lab',
   Group = 'Group',
+  GroupSchedule = 'GroupSchedule',
   Api = 'Api',
 }
