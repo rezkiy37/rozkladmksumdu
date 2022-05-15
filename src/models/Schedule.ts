@@ -6,6 +6,7 @@ import { SubjectModel } from './Subject'
 import { TeacherModel } from './Teacher'
 
 export const ScheduleModel = types.model(ModelName.Schedule, {
+  id: types.identifier,
   order: types.number,
   dayOfWeek: types.number,
   group: types.string,
