@@ -1,6 +1,6 @@
 import { UrlParams } from '@app/types/api'
 
-export const endpointBuilder = (
+export const buildEndpoint = (
   endpoint: string,
   params: Nullable<UrlParams>,
 ): string => {

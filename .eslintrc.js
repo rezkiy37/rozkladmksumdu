@@ -49,6 +49,7 @@ module.exports = {
       },
     ],
     'import/no-cycle': 'error',
+    'import/named': 'off',
     'import/newline-after-import': 'error',
     'import/no-unresolved': 'off',
     'import/namespace': 'off',
@@ -83,5 +84,6 @@ module.exports = {
       },
     ],
     'react/jsx-newline': 'error',
+    'react/jsx-no-bind': 'error',
   },
 }
