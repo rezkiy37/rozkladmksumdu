@@ -14,7 +14,6 @@
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
-    "@native-base/icons": "^0.0.11",
     "@react-navigation/drawer": "^6.4.1",
     "@react-navigation/native": "^6.0.10",
     "axios": "^0.27.2",
@@ -23,7 +22,6 @@
     "mobx-react": "^7.4.0",
     "mobx-react-lite": "^3.4.0",
     "mobx-state-tree": "^5.1.4",
-    "native-base": "^3.4.3",
     "react": "17.0.2",
     "react-dom": "^18.1.0",
     "react-native": "0.68.1",
