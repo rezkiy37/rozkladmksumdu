@@ -1,8 +1,11 @@
 export type Sizes = {
+  zero: number
   sm: number
   md: number
   lg: number
   xl: number
+  logo: number
+  icon: number
   '1/2': string
   '1/3': string
   '2/3': string
@@ -14,4 +17,5 @@ export type Sizes = {
   '3/5': string
   '4/5': string
   full: string
+  auto: string
 }
