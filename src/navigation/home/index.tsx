@@ -2,6 +2,7 @@ import React from 'react'
 
 import { createDrawerNavigator } from '@react-navigation/drawer'
 
+import { DrawerContent } from '@app/components/DrawerContent'
 import { GroupScheduleScreen } from '@app/features/groupSchedule'
 import { HomeScreen } from '@app/features/home'
 import { LabsScreen } from '@app/features/labs'
@@ -13,7 +14,7 @@ const Stack = createDrawerNavigator<HomeNavigationParams>()
 
 const HomeStack: React.FC = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator drawerContent={DrawerContent}>
       <Stack.Screen
         name={HomeScreenNames.Home}
         component={HomeScreen}
