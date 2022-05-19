@@ -6,6 +6,7 @@ export const colors: {
   [key in ThemeMode]: Colors
 } = {
   [ThemeMode.Light]: {
+    transparent: 'transparent',
     primary: '#155e75',
     secondary: '#ec4899',
     background: '#ecfeff',
@@ -19,8 +20,10 @@ export const colors: {
     warning: '#f97316',
     muted: '#737373',
     info: '#0ea5e9',
+    icon: '#0e7490',
   },
   [ThemeMode.Dark]: {
+    transparent: 'transparent',
     primary: '#67e8f9',
     secondary: '#f9a8d4',
     background: '#164e63',
@@ -34,5 +37,6 @@ export const colors: {
     warning: '#fdba74',
     muted: '#d4d4d4',
     info: '#7dd3fc',
+    icon: '#a5f3fc',
   },
 }

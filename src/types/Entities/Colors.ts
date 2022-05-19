@@ -12,4 +12,6 @@ export type Colors = {
   warning: string
   muted: string
   info: string
+  icon: string
+  transparent: string
 }
