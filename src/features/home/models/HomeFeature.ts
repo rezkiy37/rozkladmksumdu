@@ -12,6 +12,7 @@ import { ModelName } from './ModelName'
 export const HomeFeatureModel = types
   .model(ModelName.HomeFeature, {
     api: ApiModel,
+    groupsVisible: types.boolean,
     groups: types.array(GroupModel),
     scheduleChanges: types.array(ScheduleChangeModel),
   })
@@ -21,6 +22,14 @@ export const HomeFeatureModel = types
     },
   }))
   .actions(self => {
+    function showGroups() {
+      self.groupsVisible = true
+    }
+
+    function hideGroups() {
+      self.groupsVisible = false
+    }
+
     function setGroups(groups: Group[]) {
       self.groups.replace(groups)
     }
@@ -75,6 +84,8 @@ export const HomeFeatureModel = types
       clearScheduleChanges,
       uploadScheduleChanges,
       uploadGroups,
+      showGroups,
+      hideGroups,
     }
   })
 
@@ -82,6 +93,7 @@ export type HomeFeature = Instance<typeof HomeFeatureModel>
 
 export const initialState = HomeFeatureModel.create({
   api: apiInitialState,
+  groupsVisible: false,
   groups: [],
   scheduleChanges: [],
 })
