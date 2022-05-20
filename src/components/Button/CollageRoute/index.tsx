@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 
 import Basic from '../Basic'
 
+import { strings } from '@app/assets/locale/strings'
 import { CollageRouteIcon } from '@app/components/Icon'
 import { Caption } from '@app/components/Typography'
 import { useLinking } from '@app/hooks/useLinking'
@@ -9,7 +10,6 @@ import { useThemedStyles } from '@app/hooks/useThemedStyles'
 
 import { styles } from './styles'
 
-// TODO: Use strings
 const CollageRoute: React.FC = () => {
   const themedStyles = useThemedStyles(styles)
 
@@ -28,7 +28,7 @@ const CollageRoute: React.FC = () => {
         style={themedStyles.title}
         numberOfLines={1}
       >
-        Collage route
+        {strings.components.button.collageRoute.title}
       </Caption>
 
       <CollageRouteIcon style={themedStyles.icon} />

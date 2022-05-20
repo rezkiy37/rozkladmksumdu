@@ -1,5 +1,6 @@
 import { Linking } from 'react-native'
 
+import { strings } from '@app/assets/locale/strings'
 import { links } from '@app/constants/links'
 
 export const useLinking = () => {
@@ -7,9 +8,8 @@ export const useLinking = () => {
     try {
       await Linking.openURL(url)
     } catch (e) {
-      // TODO: Use strings
       // TODO: Integrate Error service
-      throw new Error('Unavailable open collage location')
+      throw new Error(strings.errors.linking.unavailableOpenLink)
     }
   }
 
