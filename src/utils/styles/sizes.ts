@@ -1,3 +1,5 @@
+import { Dimensions } from 'react-native'
+
 import { Sizes } from '@app/types/Entities/Sizes'
 
 export const sizes: Sizes = {
@@ -8,6 +10,7 @@ export const sizes: Sizes = {
   xl: 20,
   logo: 96,
   icon: 24,
+  bottomSheetHeight: Dimensions.get('screen').height * 0.7,
   '1/2': '50%',
   '1/3': '33.333%',
   '2/3': '66.666%',

@@ -27,6 +27,7 @@
     "react-dom": "^18.1.0",
     "react-localization": "^1.0.19",
     "react-native": "0.68.1",
+    "react-native-actions-sheet": "^0.6.1",
     "react-native-config": "^1.4.5",
     "react-native-device-info": "^8.7.1",
     "react-native-flipper": "^0.144.0",
