@@ -12,6 +12,7 @@ const Container: React.FC<Props> = ({ style, children, ...props }) => {
   return (
     <SafeAreaView
       style={[themedStyles.container, style]}
+      edges={['left', 'right', 'bottom']}
       {...props}
     >
       {children}
