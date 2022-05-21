@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect } from 'react'
-import { Text } from 'react-native'
 
 import { RouteProp, useRoute } from '@react-navigation/native'
 import { observer } from 'mobx-react'
 
 import { useGroupScheduleFeature } from '../../hooks'
 
+import { BackHomeButton } from '@app/components/Button'
+import Container from '@app/components/Container'
+import ScreenFooter from '@app/components/ScreenFooter'
 import { HomeNavigationParams } from '@app/navigation/home/NavigationParams'
 import { HomeScreenNames } from '@app/navigation/home/ScreenNames'
 
@@ -43,13 +45,11 @@ const GroupScheduleScreen: React.FC = observer(() => {
 
   return (
     <>
-      <Text onPress={clearScreenContent}>Clear</Text>
+      <Container></Container>
 
-      <Text onPress={uploadScheduleChanges}>
-        {groupScheduleFeature.api.loading ? 'Loading...' : 'Not loading'}
-      </Text>
-
-      <Text>{groupScheduleFeature.selectedGroup?.name ?? 'No name'}</Text>
+      <ScreenFooter>
+        <BackHomeButton />
+      </ScreenFooter>
     </>
   )
 })
