@@ -12,6 +12,7 @@ import { ModelName } from './ModelName'
 export const HomeFeatureModel = types
   .model(ModelName.HomeFeature, {
     api: ApiModel,
+    groupsSearch: types.string,
     groupsVisible: types.boolean,
     groups: types.array(GroupModel),
     scheduleChanges: types.array(ScheduleChangeModel),
@@ -20,8 +21,23 @@ export const HomeFeatureModel = types
     get scheduleChangesAmount(): string {
       return self.scheduleChanges.length.toString()
     },
+    get searchedGroups(): Group[] {
+      if (self.groupsSearch === '') {
+        return self.groups
+      }
+
+      return self.groups.filter(({ name }) => name.includes(self.groupsSearch))
+    },
   }))
   .actions(self => {
+    function changeGroupsSearch(groupName: string) {
+      self.groupsSearch = groupName
+    }
+
+    function clearGroupsSearch() {
+      self.groupsSearch = ''
+    }
+
     function showGroups() {
       self.groupsVisible = true
     }
@@ -80,6 +96,8 @@ export const HomeFeatureModel = types
     })
 
     return {
+      changeGroupsSearch,
+      clearGroupsSearch,
       clearGroups,
       clearScheduleChanges,
       uploadScheduleChanges,
@@ -94,6 +112,7 @@ export type HomeFeature = Instance<typeof HomeFeatureModel>
 export const initialState = HomeFeatureModel.create({
   api: apiInitialState,
   groupsVisible: false,
+  groupsSearch: '',
   groups: [],
   scheduleChanges: [],
 })

@@ -56,6 +56,9 @@ export const strings = new LocalizedStrings({
               title: 'Select the group: {0}',
             },
           },
+          groupsBottomSheet: {
+            inputPlaceholder: 'Enter group...',
+          },
         },
       },
     },

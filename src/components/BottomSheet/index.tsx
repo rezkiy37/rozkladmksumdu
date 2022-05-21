@@ -1,8 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react'
-import { View } from 'react-native'
+import { Platform, View } from 'react-native'
 
-import RNBottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet'
+import RNBottomSheet, {
+  BottomSheetBackdrop,
+  KEYBOARD_BEHAVIOR,
+} from '@gorhom/bottom-sheet'
 
+import { useKeyboardOpened } from '@app/hooks/useKeyboardOpened'
 import { useTheme } from '@app/hooks/useTheme'
 import { useThemedStyles } from '@app/hooks/useThemedStyles'
 
@@ -12,9 +16,19 @@ import { Props } from './types'
 const BottomSheet: React.FC<Props> = ({ visible, children, onClose }) => {
   const bottomSheetRef = useRef<RNBottomSheet>()
 
+  const isKeyboardOpened = useKeyboardOpened()
+
   const theme = useTheme()
 
   const themedStyles = useThemedStyles(styles)
+
+  const enablePanDownToClose = useMemo(() => {
+    if (Platform.OS === 'ios') {
+      return true
+    }
+
+    return !isKeyboardOpened
+  }, [isKeyboardOpened])
 
   const snapPoints = useMemo(
     () => [theme.sizes.bottomSheetHeight],
@@ -46,8 +60,9 @@ const BottomSheet: React.FC<Props> = ({ visible, children, onClose }) => {
       // @ts-ignore
       ref={bottomSheetRef}
       index={-1}
+      keyboardBehavior={KEYBOARD_BEHAVIOR.extend}
       snapPoints={snapPoints}
-      enablePanDownToClose
+      enablePanDownToClose={enablePanDownToClose}
       backdropComponent={renderBackdrop}
       onClose={onClose}
     >

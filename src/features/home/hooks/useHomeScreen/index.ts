@@ -15,6 +15,7 @@ export const useHomeScreen = () => {
 
   const clearScreenContent = useCallback(() => {
     homeFeature.clearGroups()
+    homeFeature.clearGroupsSearch()
     homeFeature.clearScheduleChanges()
   }, [homeFeature])
 
