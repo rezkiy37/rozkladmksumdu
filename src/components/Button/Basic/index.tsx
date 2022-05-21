@@ -1,13 +1,14 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 
+import { Caption } from '@app/components/Typography'
 import { useTheme } from '@app/hooks/useTheme'
 import { useThemedStyles } from '@app/hooks/useThemedStyles'
 
 import { styles } from './styles'
 import { Props } from './types'
 
-const Basic: React.FC<Props> = ({ style, children, ...props }) => {
+const Basic: React.FC<Props> = ({ style, Icon, children, ...props }) => {
   const { opacity } = useTheme()
 
   const themedStyles = useThemedStyles(styles)
@@ -18,7 +19,14 @@ const Basic: React.FC<Props> = ({ style, children, ...props }) => {
       activeOpacity={opacity.active}
       {...props}
     >
-      {children}
+      <Caption
+        style={themedStyles.title}
+        numberOfLines={1}
+      >
+        {children}
+      </Caption>
+
+      <Icon style={themedStyles.icon} />
     </TouchableOpacity>
   )
 }

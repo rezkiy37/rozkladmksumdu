@@ -8,7 +8,15 @@ export const styles = ({ colors, sizes }: ThemedStyles) =>
       width: sizes.full,
       paddingHorizontal: sizes.md,
       paddingVertical: sizes.sm,
-      justifyContent: 'center',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       backgroundColor: colors.transparent,
+    },
+    title: {
+      flex: 1,
+    },
+    icon: {
+      marginLeft: sizes.md,
     },
   })

@@ -1,3 +1,7 @@
 import { TouchableOpacityProps } from 'react-native'
 
-export type Props = TouchableOpacityProps
+import { IconProps } from '@app/components/Icon/types'
+
+export type Props = TouchableOpacityProps & {
+  Icon: React.FC<IconProps>
+}
