@@ -9,6 +9,20 @@ export const strings = new LocalizedStrings({
         unavailableOpenLink: 'Unavailable to open the link',
       },
     },
+    navigation: {
+      home: {
+        home: {
+          title: 'Home',
+        },
+        groupSchedule: {
+          title: 'Group: {0}',
+          fallbackTitle: 'Group schedule',
+        },
+        labs: {
+          title: 'All labs',
+        },
+      },
+    },
     components: {
       appVersion: {
         title: 'Version: {0}',
