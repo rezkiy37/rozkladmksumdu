@@ -15,6 +15,7 @@
     "android-port-revert": "adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "^4",
     "@react-navigation/drawer": "^6.4.1",
     "@react-navigation/native": "^6.0.10",
     "axios": "^0.27.2",
@@ -27,11 +28,10 @@
     "react-dom": "^18.1.0",
     "react-localization": "^1.0.19",
     "react-native": "0.68.1",
-    "react-native-actions-sheet": "^0.6.1",
     "react-native-config": "^1.4.5",
     "react-native-device-info": "^8.7.1",
     "react-native-flipper": "^0.144.0",
-    "react-native-gesture-handler": "^2.4.1",
+    "react-native-gesture-handler": "^2.4.2",
     "react-native-reanimated": "^2.8.0",
     "react-native-safe-area-context": "^4.2.5",
     "react-native-screens": "^3.13.1",
