@@ -14,6 +14,9 @@ export const strings = new LocalizedStrings({
         title: 'Version: {0}',
       },
       button: {
+        basic: {
+          loading: 'Loading...',
+        },
         collageRoute: {
           title: 'Collage route',
         },

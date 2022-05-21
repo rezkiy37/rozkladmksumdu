@@ -2,8 +2,11 @@ import { useTheme } from '../useTheme'
 
 import { ThemedStyles } from '@app/types/Entities/ThemedStyles'
 
-export const useThemedStyles = <T>(styles: (theme: ThemedStyles) => T) => {
+export const useThemedStyles = <T, P>(
+  styles: (theme: ThemedStyles, props: P) => T,
+  props: P = {} as P,
+) => {
   const theme = useTheme()
 
-  return styles(theme)
+  return styles(theme, props)
 }

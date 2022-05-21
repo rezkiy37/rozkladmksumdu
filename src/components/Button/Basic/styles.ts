@@ -2,7 +2,12 @@ import { StyleSheet } from 'react-native'
 
 import { ThemedStyles } from '@app/types/Entities/ThemedStyles'
 
-export const styles = ({ colors, sizes }: ThemedStyles) =>
+import { StylesProps } from './types'
+
+export const styles = (
+  { colors, sizes, opacity }: ThemedStyles,
+  { loading }: StylesProps,
+) =>
   StyleSheet.create({
     container: {
       width: sizes.full,
@@ -11,6 +16,7 @@ export const styles = ({ colors, sizes }: ThemedStyles) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      opacity: loading ? opacity.inactive : opacity.initial,
       backgroundColor: colors.transparent,
     },
     title: {
