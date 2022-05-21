@@ -9,3 +9,5 @@ export { default as LabIcon } from './Lab'
 export { default as GroupIcon } from './Group'
 
 export { default as GroupsIcon } from './Groups'
+
+export { default as BackIcon } from './Back'

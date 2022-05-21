@@ -37,6 +37,9 @@ export const strings = new LocalizedStrings({
         switchTheme: {
           title: 'Change theme mode',
         },
+        backHome: {
+          title: 'Back home',
+        },
       },
     },
     features: {
