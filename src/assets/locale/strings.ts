@@ -22,5 +22,22 @@ export const strings = new LocalizedStrings({
         },
       },
     },
+    features: {
+      home: {
+        components: {
+          button: {
+            showLabs: {
+              title: 'Show all labs',
+            },
+            selectGroup: {
+              title: 'Select a group',
+            },
+            groupSelection: {
+              title: 'Select the group: {0}',
+            },
+          },
+        },
+      },
+    },
   },
 })
