@@ -6,6 +6,7 @@ export const styles = ({ colors, sizes }: ThemedStyles) =>
   StyleSheet.create({
     container: {
       flex: 1,
+      paddingTop: sizes.lg,
       paddingHorizontal: sizes.lg,
       backgroundColor: colors.background,
     },
