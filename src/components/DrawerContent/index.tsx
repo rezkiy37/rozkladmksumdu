@@ -18,7 +18,10 @@ export const DrawerContent: React.FC<Props> = () => {
   const themedStyles = useThemedStyles(styles)
 
   return (
-    <Container style={themedStyles.container}>
+    <Container
+      style={themedStyles.container}
+      edges={['top', 'left', 'right', 'bottom']}
+    >
       <Image
         style={themedStyles.logo}
         source={Images.collageLogo}
