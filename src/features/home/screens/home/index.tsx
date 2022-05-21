@@ -1,81 +1,24 @@
-import React, { useCallback, useEffect } from 'react'
-import { Text } from 'react-native'
+import React from 'react'
 
-import { NavigationProp, useNavigation } from '@react-navigation/native'
-import { observer } from 'mobx-react'
+import { SelectGroupButton, ShowLabsButton } from '../../components/Button'
+import GroupsBottomSheet from '../../components/GroupListBottomSheet'
+import { useHomeScreen } from '../../hooks'
 
-import { useHomeFeature } from '../../hooks'
+import Container from '@app/components/Container'
 
-import { Group } from '@app/models/Group'
-import { HomeNavigationParams } from '@app/navigation/home/NavigationParams'
-import { HomeScreenNames } from '@app/navigation/home/ScreenNames'
-
-const HomeScreen: React.FC = observer(() => {
-  const { navigate } = useNavigation<NavigationProp<HomeNavigationParams>>()
-
-  const homeFeature = useHomeFeature()
-
-  const uploadGroups = useCallback(async () => {
-    await homeFeature.uploadGroups()
-  }, [homeFeature])
-
-  const uploadScheduleChanges = useCallback(async () => {
-    await homeFeature.uploadScheduleChanges()
-  }, [homeFeature])
-
-  const clearScreenContent = useCallback(() => {
-    homeFeature.clearGroups()
-    homeFeature.clearScheduleChanges()
-  }, [homeFeature])
-
-  const navigateToGroupSchedule = useCallback(
-    (selectedGroup: Group) => {
-      navigate(HomeScreenNames.GroupSchedule, {
-        selectedGroup,
-      })
-    },
-    [navigate],
-  )
-
-  useEffect(() => {
-    uploadGroups()
-
-    uploadScheduleChanges()
-
-    return () => {
-      clearScreenContent()
-    }
-  }, [clearScreenContent, uploadGroups, uploadScheduleChanges])
+// TODO: Refine about schedule changes implementation
+const HomeScreen: React.FC = () => {
+  useHomeScreen()
 
   return (
-    <>
-      <Text onPress={uploadGroups}>
-        {homeFeature.api.loading ? 'Loading...' : 'Not loading'}
-      </Text>
+    <Container>
+      <SelectGroupButton />
 
-      {homeFeature.groups.map(group => (
-        <Text
-          key={group.id}
-          // eslint-disable-next-line react/jsx-no-bind
-          onPress={() => navigateToGroupSchedule(group)}
-        >
-          {group.name}
-        </Text>
-      ))}
+      <ShowLabsButton />
 
-      <Text>{homeFeature.api.errorMessage}</Text>
-
-      <Text onPress={uploadScheduleChanges}>
-        {homeFeature.api.loading ? 'Loading...' : 'Not loading'}
-      </Text>
-
-      {homeFeature.scheduleChanges.map(scheduleChange => (
-        <Text key={scheduleChange.id}>{scheduleChange.id}</Text>
-      ))}
-
-      <Text>{homeFeature.api.errorMessage}</Text>
-    </>
+      <GroupsBottomSheet />
+    </Container>
   )
-})
+}
 
 export default HomeScreen

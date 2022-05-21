@@ -14,11 +14,31 @@ export const strings = new LocalizedStrings({
         title: 'Version: {0}',
       },
       button: {
+        basic: {
+          loading: 'Loading...',
+        },
         collageRoute: {
           title: 'Collage route',
         },
         switchTheme: {
           title: 'Change theme mode',
+        },
+      },
+    },
+    features: {
+      home: {
+        components: {
+          button: {
+            showLabs: {
+              title: 'Show all labs',
+            },
+            selectGroup: {
+              title: 'Select a group',
+            },
+            groupSelection: {
+              title: 'Select the group: {0}',
+            },
+          },
         },
       },
     },

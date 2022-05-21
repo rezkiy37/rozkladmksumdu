@@ -1,5 +1,6 @@
 import { Styles } from '@app/types/Entities/Styles'
 
+import { borderRadius } from './borderRadius'
 import { colors } from './colors'
 import { fontSizes } from './fontSizes'
 import { fontWeights } from './fontWeights'
@@ -14,4 +15,5 @@ export const styles: Styles = {
   sizes,
   shadow,
   fontWeights,
+  borderRadius,
 }

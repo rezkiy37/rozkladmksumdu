@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native'
 
 import { ThemedStyles } from '@app/types/Entities/ThemedStyles'
 
-export const styles = ({ colors, sizes }: ThemedStyles) =>
+export const styles = ({ colors, sizes, borderRadius }: ThemedStyles) =>
   StyleSheet.create({
     container: {
-      flex: 1,
-      paddingTop: sizes.lg,
-      paddingHorizontal: sizes.lg,
+      width: sizes.full,
+      height: sizes.listItemSeparator,
+      borderRadius: borderRadius.sm,
       backgroundColor: colors.background,
     },
   })
