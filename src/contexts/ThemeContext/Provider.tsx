@@ -22,6 +22,7 @@ export const Provider: React.FC = ({ children }) => {
     <Context.Provider
       value={{
         ...styles,
+        keyboardAppearance: styles.keyboardAppearance[mode],
         colors: styles.colors[mode],
         mode,
         isLightMode,

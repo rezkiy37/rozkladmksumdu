@@ -2,13 +2,15 @@ import { useCallback } from 'react'
 
 import { useHomeFeature } from '../useHomeFeature'
 
+import { keyboardHideDuration } from '@app/constants/keyboardHideDuration'
 import { useNavigationActions } from '@app/hooks/useNavigationActions/index'
 import { Group } from '@app/models/Group'
 
 export const useHomeScreenHandlers = () => {
   const { navigateToGroupSchedule, navigateToLabs } = useNavigationActions()
 
-  const { showGroups, hideGroups } = useHomeFeature()
+  const { showGroups, hideGroups, changeGroupsSearch, clearGroupsSearch } =
+    useHomeFeature()
 
   const onShowGroupsPress = useCallback(() => {
     showGroups()
@@ -16,13 +18,17 @@ export const useHomeScreenHandlers = () => {
 
   const onGroupsBottomSheetClose = useCallback(() => {
     hideGroups()
-  }, [hideGroups])
+
+    clearGroupsSearch()
+  }, [hideGroups, clearGroupsSearch])
 
   const onGroupSelect = useCallback(
     (group: Group) => {
       hideGroups()
 
-      navigateToGroupSchedule(group)
+      setTimeout(() => {
+        navigateToGroupSchedule(group)
+      }, keyboardHideDuration)
     },
     [hideGroups, navigateToGroupSchedule],
   )
@@ -31,7 +37,15 @@ export const useHomeScreenHandlers = () => {
     navigateToLabs()
   }, [navigateToLabs])
 
+  const onChangeGroupsSearch = useCallback(
+    (groupName: string) => {
+      changeGroupsSearch(groupName)
+    },
+    [changeGroupsSearch],
+  )
+
   return {
+    onChangeGroupsSearch,
     onGroupsBottomSheetClose,
     onShowGroupsPress,
     onGroupSelect,

@@ -11,7 +11,7 @@ export const sizes: Sizes = {
   logo: 96,
   icon: 24,
   listItemSeparator: 2,
-  bottomSheetHeight: Dimensions.get('screen').height * 0.7,
+  bottomSheetHeight: Dimensions.get('screen').height * 0.8,
   '1/2': '50%',
   '1/3': '33.333%',
   '2/3': '66.666%',

@@ -1,25 +1,32 @@
-import React, { useCallback } from 'react'
-import { ListRenderItem } from 'react-native'
+import React, { useCallback, useEffect, useRef } from 'react'
+import { ListRenderItem, Platform, TextInput } from 'react-native'
 
-import { BottomSheetFlatList } from '@gorhom/bottom-sheet'
+import { BottomSheetFlatList, BottomSheetTextInput } from '@gorhom/bottom-sheet'
 import { observer } from 'mobx-react'
 
 import { useHomeFeature, useHomeScreenHandlers } from '../../hooks'
 import { GroupSelectionButton } from '../Button'
 
+import { strings } from '@app/assets/locale/strings'
 import BottomSheet from '@app/components/BottomSheet'
 import Separator from '@app/components/Separator'
+import { useTheme } from '@app/hooks/useTheme'
 import { useThemedStyles } from '@app/hooks/useThemedStyles'
 import { Group } from '@app/models/Group'
 
 import { styles } from './styles'
 
 const GroupsBottomSheet: React.FC = observer(() => {
+  const inputRef = useRef<TextInput>()
+
+  const theme = useTheme()
+
   const themedStyles = useThemedStyles(styles)
 
-  const { groupsVisible, groups } = useHomeFeature()
+  const { searchedGroups, groupsSearch, groupsVisible } = useHomeFeature()
 
-  const { onGroupSelect, onGroupsBottomSheetClose } = useHomeScreenHandlers()
+  const { onGroupSelect, onGroupsBottomSheetClose, onChangeGroupsSearch } =
+    useHomeScreenHandlers()
 
   const keyExtractor = useCallback((group: Group) => group.id, [])
 
@@ -36,16 +43,40 @@ const GroupsBottomSheet: React.FC = observer(() => {
 
   const renderItemSeparator = useCallback(() => <Separator />, [])
 
+  useEffect(() => {
+    if (groupsVisible) {
+      inputRef.current?.focus()
+    } else {
+      inputRef.current?.blur()
+    }
+  }, [groupsVisible])
+
   return (
     <BottomSheet
       visible={groupsVisible}
       onClose={onGroupsBottomSheetClose}
     >
+      <BottomSheetTextInput
+        style={themedStyles.input}
+        // @ts-expect-error
+        ref={inputRef}
+        keyboardAppearance={theme.keyboardAppearance}
+        keyboardType='numeric'
+        placeholder={
+          strings.features.home.components.groupsBottomSheet.inputPlaceholder
+        }
+        placeholderTextColor={theme.colors.muted}
+        value={groupsSearch}
+        onChangeText={onChangeGroupsSearch}
+      />
+
       <BottomSheetFlatList
         style={themedStyles.container}
         contentContainerStyle={themedStyles.contentContainer}
         showsVerticalScrollIndicator={false}
-        data={groups}
+        data={searchedGroups}
+        keyboardDismissMode='on-drag'
+        keyboardShouldPersistTaps={Platform.OS === 'ios' ? 'always' : 'never'}
         keyExtractor={keyExtractor}
         ItemSeparatorComponent={renderItemSeparator}
         renderItem={renderGroupItem}
