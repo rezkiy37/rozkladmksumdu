@@ -1,4 +1,4 @@
-import { Auditory } from '@app/models/Auditory'
+import { Auditory } from '@app/types/entities/Auditory'
 
 import { convertToValue } from './convertToValue'
 

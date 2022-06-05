@@ -1,4 +1,4 @@
-import { Teacher } from '@app/models/Teacher'
+import { Teacher } from '@app/types/entities/Teacher'
 
 import { convertToValue } from './convertToValue'
 
