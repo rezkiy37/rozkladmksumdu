@@ -1,4 +1,4 @@
-import { Shadow } from '@app/types/Entities/Shadow'
+import { Shadow } from '@app/types/styles/Shadow'
 
 export const shadow: Shadow = {
   shadowColor: '#000',

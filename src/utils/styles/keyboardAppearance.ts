@@ -1,4 +1,4 @@
-import { KeyboardAppearance } from '@app/types/Entities/KeyboardAppearance'
+import { KeyboardAppearance } from '@app/types/styles/KeyboardAppearance'
 
 import { ThemeMode } from './ThemeMode'
 

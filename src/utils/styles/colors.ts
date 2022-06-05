@@ -1,4 +1,4 @@
-import { Colors } from '@app/types/Entities/Colors'
+import { Colors } from '@app/types/styles/Colors'
 
 import { ThemeMode } from './ThemeMode'
 

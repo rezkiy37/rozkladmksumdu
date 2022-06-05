@@ -1,6 +1,6 @@
 import { Dimensions } from 'react-native'
 
-import { Sizes } from '@app/types/Entities/Sizes'
+import { Sizes } from '@app/types/styles/Sizes'
 
 export const sizes: Sizes = {
   zero: 0,

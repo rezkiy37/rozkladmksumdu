@@ -1,6 +1,6 @@
 import { useTheme } from '../useTheme'
 
-import { ThemedStyles } from '@app/types/Entities/ThemedStyles'
+import { ThemedStyles } from '@app/types/styles/ThemedStyles'
 
 export const useThemedStyles = <T, P>(
   styles: (theme: ThemedStyles, props: P) => T,

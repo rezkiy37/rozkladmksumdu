@@ -1,4 +1,4 @@
-import { FontSizes } from '@app/types/Entities/FontSizes'
+import { FontSizes } from '@app/types/styles/FontSizes'
 
 export const fontSizes: FontSizes = {
   heading: 32,

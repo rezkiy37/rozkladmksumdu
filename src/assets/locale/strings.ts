@@ -1,6 +1,6 @@
 import LocalizedStrings from 'react-localization'
 
-import { Locale } from '@app/types/Entities/Locale'
+import { Locale } from '@app/types/entities/Locale'
 
 export const strings = new LocalizedStrings({
   [Locale.UA]: {

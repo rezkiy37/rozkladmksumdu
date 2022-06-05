@@ -1,4 +1,4 @@
-import { Opacity } from '@app/types/Entities/Opacity'
+import { Opacity } from '@app/types/styles/Opacity'
 
 export const opacity: Opacity = {
   initial: 1,

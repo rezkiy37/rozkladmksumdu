@@ -9,7 +9,7 @@ import {
 import { Store } from '@app/models/Store'
 import { groupScheduleApiService } from '@app/services/api'
 import { GetGroupScheduleResult } from '@app/services/api/groupSchedule'
-import { ScheduleType } from '@app/types/Entities/ScheduleType'
+import { ScheduleType } from '@app/types/entities/ScheduleType'
 
 import { ModelName } from './ModelName'
 
