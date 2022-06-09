@@ -7,18 +7,12 @@ import { StylesProps } from './types'
 
 export const styles = (
   { colors, sizes, borderRadius }: ThemedStyles,
-  { direction }: StylesProps,
+  { direction, size }: StylesProps,
 ) =>
   StyleSheet.create({
     container: {
-      width:
-        direction === SeparatorDirection.Horizontal
-          ? sizes.listItemSeparator
-          : sizes.full,
-      height:
-        direction === SeparatorDirection.Horizontal
-          ? sizes.full
-          : sizes.listItemSeparator,
+      width: direction === SeparatorDirection.Horizontal ? size : sizes.full,
+      height: direction === SeparatorDirection.Horizontal ? sizes.full : size,
       borderRadius: borderRadius.sm,
       backgroundColor: colors.background,
     },
