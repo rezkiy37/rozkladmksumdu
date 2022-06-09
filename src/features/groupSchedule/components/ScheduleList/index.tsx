@@ -3,25 +3,25 @@ import { FlatList } from 'react-native'
 
 import { observer } from 'mobx-react'
 
-// import { useGroupScheduleFeature } from '../../hooks'
-
+import { useGroupScheduleFeature } from '../../hooks'
 import ScheduleCard from '../ScheduleCard'
 
 import { useThemedStyles } from '@app/hooks/useThemedStyles'
+import { DayOfWeek } from '@app/types/entities/DayOfWeek'
 
 import { styles } from './styles'
 
 const ScheduleList: React.FC = observer(() => {
-  // const { groupSchedule } = useGroupScheduleFeature()
-
   const themedStyles = useThemedStyles(styles)
 
-  const renderScheduleCard = useCallback(() => <ScheduleCard />, [])
+  const { dayOfWeekList } = useGroupScheduleFeature()
 
-  const keyExtractor = useCallback(
-    (item: number, index: number) => index.toString(),
+  const renderScheduleCard = useCallback(
+    ({ item }: { item: DayOfWeek }) => <ScheduleCard dayOfWeek={item} />,
     [],
   )
+
+  const keyExtractor = useCallback((item: DayOfWeek) => item.toString(), [])
 
   return (
     <FlatList
@@ -30,7 +30,7 @@ const ScheduleList: React.FC = observer(() => {
       showsHorizontalScrollIndicator={false}
       horizontal
       pagingEnabled
-      data={[1, 2, 3, 4, 5]}
+      data={dayOfWeekList}
       keyExtractor={keyExtractor}
       renderItem={renderScheduleCard}
     />
