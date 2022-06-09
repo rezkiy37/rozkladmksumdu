@@ -1,5 +1,6 @@
 import { flow, Instance, types, getRoot } from 'mobx-state-tree'
 
+import { days } from '@app/constants/days'
 import { ApiModel, initialState as apiInitialState } from '@app/models/Api'
 import { Group, GroupModel } from '@app/models/Group'
 import {
@@ -9,6 +10,7 @@ import {
 import { Store } from '@app/models/Store'
 import { groupScheduleApiService } from '@app/services/api'
 import { GetGroupScheduleResult } from '@app/services/api/groupSchedule'
+import { DayOfWeek } from '@app/types/entities/DayOfWeek'
 import { ScheduleType } from '@app/types/entities/ScheduleType'
 
 import { ModelName } from './ModelName'
@@ -83,13 +85,26 @@ export const GroupScheduleFeatureModel = types
       }
     })
 
+    // TODO: Rework
+    function getDaySchedule(dayOfWeek: DayOfWeek) {
+      return self.groupSchedule[dayOfWeek].sort((a, b) => a.order - b.order)
+    }
+
     return {
       setSelectedGroup,
       clearSelectedGroup,
       clearScheduleType,
       uploadGroupSchedules,
+      getDaySchedule,
     }
   })
+  .views(self => ({
+    get dayOfWeekList(): DayOfWeek[] {
+      return Object.values(days).filter(
+        day => self.groupSchedule[day].length > 0,
+      )
+    },
+  }))
 
 export type GroupScheduleFeature = Instance<typeof GroupScheduleFeatureModel>
 
