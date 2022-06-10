@@ -7,7 +7,7 @@ import ScreenFooter from '@app/components/ScreenFooter'
 const LabsScreen: React.FC = () => {
   return (
     <>
-      <Container></Container>
+      <Container />
 
       <ScreenFooter>
         <BackHomeButton />
