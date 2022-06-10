@@ -1,4 +1,4 @@
-import { FontWeights } from '@app/types/Entities/FontWeights'
+import { FontWeights } from '@app/types/styles/FontWeights'
 
 export const fontWeights: FontWeights = {
   heading: '800',

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react'
 
-import { Theme } from '@app/types/Entities/Theme'
+import { Theme } from '@app/types/styles/Theme'
 import { styles } from '@app/utils/styles'
 import { ThemeMode } from '@app/utils/styles/ThemeMode'
 

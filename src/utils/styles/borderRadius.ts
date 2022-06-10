@@ -1,4 +1,4 @@
-import { BorderRadius } from '@app/types/Entities/BorderRadius'
+import { BorderRadius } from '@app/types/styles/BorderRadius'
 
 export const borderRadius: BorderRadius = {
   sm: 4,

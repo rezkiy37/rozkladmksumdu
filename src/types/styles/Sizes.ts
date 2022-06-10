@@ -6,7 +6,7 @@ export type Sizes = {
   xl: number
   logo: number
   icon: number
-  listItemSeparator: number
+  screen: number
   bottomSheetHeight: number
   '1/2': string
   '1/3': string

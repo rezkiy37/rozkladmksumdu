@@ -1,4 +1,4 @@
-import { Subject } from '@app/models/Subject'
+import { Subject } from '@app/types/entities/Subject'
 
 import { convertToValue } from './convertToValue'
 

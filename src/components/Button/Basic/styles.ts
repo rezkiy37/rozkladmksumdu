@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-import { ThemedStyles } from '@app/types/Entities/ThemedStyles'
+import { ThemedStyles } from '@app/types/styles/ThemedStyles'
 
 import { StylesProps } from './types'
 

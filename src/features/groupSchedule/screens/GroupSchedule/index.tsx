@@ -1,51 +1,33 @@
-import React, { useCallback, useEffect } from 'react'
+import React from 'react'
 
-import { RouteProp, useRoute } from '@react-navigation/native'
 import { observer } from 'mobx-react'
 
-import { useGroupScheduleFeature } from '../../hooks'
+import ScheduleList from '../../components/ScheduleList'
+import ScheduleListHeader from '../../components/ScheduleListHeader'
+import { useGroupScheduleScreen } from '../../hooks/useGroupScheduleScreen'
 
 import { BackHomeButton } from '@app/components/Button'
 import Container from '@app/components/Container'
 import ScreenFooter from '@app/components/ScreenFooter'
-import { HomeNavigationParams } from '@app/navigation/home/NavigationParams'
-import { HomeScreenNames } from '@app/navigation/home/ScreenNames'
+import { useThemedStyles } from '@app/hooks/useThemedStyles'
+
+import { styles } from './styles'
 
 const GroupScheduleScreen: React.FC = observer(() => {
-  const {
-    params: { selectedGroup },
-  } = useRoute<RouteProp<HomeNavigationParams, HomeScreenNames.GroupSchedule>>()
+  useGroupScheduleScreen()
 
-  const groupScheduleFeature = useGroupScheduleFeature()
-
-  const uploadScheduleChanges = useCallback(async () => {
-    await groupScheduleFeature.uploadGroupSchedules()
-  }, [groupScheduleFeature])
-
-  const clearScreenContent = useCallback(() => {
-    groupScheduleFeature.clearSelectedGroup()
-    groupScheduleFeature.groupSchedule.clearDaysSchedule()
-  }, [groupScheduleFeature])
-
-  useEffect(() => {
-    groupScheduleFeature.setSelectedGroup(selectedGroup)
-
-    return () => {
-      clearScreenContent()
-    }
-  }, [groupScheduleFeature, selectedGroup, clearScreenContent])
-
-  useEffect(() => {
-    if (groupScheduleFeature.selectedGroup === null) {
-      return
-    }
-
-    uploadScheduleChanges()
-  }, [groupScheduleFeature.selectedGroup, uploadScheduleChanges])
+  const themedStyles = useThemedStyles(styles)
 
   return (
     <>
-      <Container></Container>
+      <Container
+        style={themedStyles.container}
+        edges={['left', 'right']}
+      >
+        <ScheduleListHeader />
+
+        <ScheduleList />
+      </Container>
 
       <ScreenFooter>
         <BackHomeButton />

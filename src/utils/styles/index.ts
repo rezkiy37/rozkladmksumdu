@@ -1,4 +1,4 @@
-import { Styles } from '@app/types/Entities/Styles'
+import { Styles } from '@app/types/styles/Styles'
 
 import { borderRadius } from './borderRadius'
 import { colors } from './colors'

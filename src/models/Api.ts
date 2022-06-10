@@ -1,4 +1,4 @@
-import { Instance, SnapshotOut, types } from 'mobx-state-tree'
+import { Instance, types } from 'mobx-state-tree'
 
 import { ModelName } from './ModelName'
 
@@ -34,9 +34,7 @@ export const ApiModel = types
 
 export type Api = Instance<typeof ApiModel>
 
-type ApiProps = SnapshotOut<typeof ApiModel>
-
-export const initialState: ApiProps = {
+export const initialState = ApiModel.create({
   loading: false,
   errorMessage: '',
-}
+})
