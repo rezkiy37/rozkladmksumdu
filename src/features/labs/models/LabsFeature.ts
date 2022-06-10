@@ -29,6 +29,10 @@ export const LabsFeatureModel = types
     const uploadLabs = flow(function* () {
       self.api.startLoading()
 
+      if (self.api.loading) {
+        return
+      }
+
       try {
         const result: GetScheduleLabsResult =
           yield scheduleLabsApiService.getScheduleLabs()

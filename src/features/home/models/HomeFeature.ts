@@ -1,4 +1,4 @@
-import { flow, Instance, types } from 'mobx-state-tree'
+import { clone, flow, Instance, types } from 'mobx-state-tree'
 
 import { ApiModel, initialState as apiInitialState } from '@app/models/Api'
 import { Group, GroupModel } from '@app/models/Group'
@@ -11,7 +11,8 @@ import { ModelName } from './ModelName'
 
 export const HomeFeatureModel = types
   .model(ModelName.HomeFeature, {
-    api: ApiModel,
+    groupsApi: ApiModel,
+    scheduleChangesApi: ApiModel,
     groupsSearch: types.string,
     groupsVisible: types.boolean,
     groups: types.array(GroupModel),
@@ -63,7 +64,11 @@ export const HomeFeatureModel = types
     }
 
     const uploadGroups = flow(function* () {
-      self.api.startLoading()
+      if (self.groupsApi.loading) {
+        return
+      }
+
+      self.groupsApi.startLoading()
 
       try {
         const result: GetGroupsResult = yield groupsApiService.getGroups()
@@ -72,14 +77,18 @@ export const HomeFeatureModel = types
       } catch (e) {
         const errorMessage = String(e)
 
-        self.api.setErrorMessage(errorMessage)
+        self.groupsApi.setErrorMessage(errorMessage)
       } finally {
-        self.api.finishLoading()
+        self.groupsApi.finishLoading()
       }
     })
 
     const uploadScheduleChanges = flow(function* () {
-      self.api.startLoading()
+      if (self.scheduleChangesApi.loading) {
+        return
+      }
+
+      self.scheduleChangesApi.startLoading()
 
       try {
         const result: GetScheduleChangesResult =
@@ -89,9 +98,9 @@ export const HomeFeatureModel = types
       } catch (e) {
         const errorMessage = String(e)
 
-        self.api.setErrorMessage(errorMessage)
+        self.scheduleChangesApi.setErrorMessage(errorMessage)
       } finally {
-        self.api.finishLoading()
+        self.scheduleChangesApi.finishLoading()
       }
     })
 
@@ -110,7 +119,8 @@ export const HomeFeatureModel = types
 export type HomeFeature = Instance<typeof HomeFeatureModel>
 
 export const initialState = HomeFeatureModel.create({
-  api: apiInitialState,
+  groupsApi: clone(apiInitialState),
+  scheduleChangesApi: clone(apiInitialState),
   groupsVisible: false,
   groupsSearch: '',
   groups: [],

@@ -14,7 +14,7 @@ const SelectGroup: React.FC = observer(() => {
   const themedStyles = useThemedStyles(styles)
 
   const {
-    api: { loading },
+    groupsApi: { loading },
   } = useHomeFeature()
 
   const { onShowGroupsPress } = useHomeScreenHandlers()

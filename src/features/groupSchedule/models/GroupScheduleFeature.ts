@@ -1,4 +1,4 @@
-import { flow, Instance, types, getRoot } from 'mobx-state-tree'
+import { clone, flow, Instance, types, getRoot } from 'mobx-state-tree'
 
 import { days } from '@app/constants/days'
 import { ApiModel, initialState as apiInitialState } from '@app/models/Api'
@@ -18,9 +18,9 @@ import { ModelName } from './ModelName'
 const SelectedGroupReference = types.maybeNull(
   types.reference(GroupModel, {
     get(id, parent): any {
-      const store = getRoot(parent)
+      const store = getRoot<Store>(parent)
 
-      return (store as Store).home.groups.find(group => group.id === id) ?? null
+      return store.home.groups.find(group => group.id === id) ?? null
     },
     set(group) {
       return group.id
@@ -58,12 +58,18 @@ export const GroupScheduleFeatureModel = types
     }
 
     const uploadGroupSchedules = flow(function* () {
+      if (self.api.loading) {
+        return
+      }
+
       self.api.startLoading()
 
       try {
         if (!self.selectedGroup?.id) {
           throw new Error('There is not selected group')
         }
+
+        self.groupSchedule.clearDaysSchedule()
 
         const result: GetGroupScheduleResult =
           yield groupScheduleApiService.getGroupSchedule(self.selectedGroup.id)
@@ -87,7 +93,7 @@ export const GroupScheduleFeatureModel = types
 
     // TODO: Rework
     function getDaySchedule(dayOfWeek: DayOfWeek) {
-      return self.groupSchedule[dayOfWeek].sort((a, b) => a.order - b.order)
+      return self.groupSchedule[dayOfWeek] //.sort((a, b) => a.order - b.order)
     }
 
     return {
@@ -109,7 +115,7 @@ export const GroupScheduleFeatureModel = types
 export type GroupScheduleFeature = Instance<typeof GroupScheduleFeatureModel>
 
 export const initialState = GroupScheduleFeatureModel.create({
-  api: apiInitialState,
+  api: clone(apiInitialState),
   selectedGroup: null,
   scheduleType: null,
   groupSchedule: groupScheduleInitialState,
