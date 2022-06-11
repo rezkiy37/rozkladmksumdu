@@ -1,6 +1,6 @@
 {
   "name": "rozkladmksumdu",
-  "version": "0.0.1",
+  "version": "2022.06.11-debug",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -12,7 +12,10 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "android-port-revert": "adb reverse tcp:8081 tcp:8081"
+    "android-port-revert": "adb reverse tcp:8081 tcp:8081",
+    "debug-build-android": "cd android && ./gradlew assembleDebug",
+    "predebug-build-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "postdebug-build-android": "open ./android/app/build/outputs/apk/debug"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
