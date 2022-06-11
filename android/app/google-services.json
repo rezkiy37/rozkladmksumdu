@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "63337751862",
+    "project_id": "rozkladmksumdu",
+    "storage_bucket": "rozkladmksumdu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63337751862:android:390ce2a8fadbf9721f3f97",
+        "android_client_info": {
+          "package_name": "com.rozkladmksumdu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63337751862-iknecs0185dg2qasl68edhhk7p2vakn8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB67EIwdJ2_e6vfuZVoAbo8TaPA1y0wDsc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63337751862-iknecs0185dg2qasl68edhhk7p2vakn8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "63337751862-arssctc4ft4hcja9j3pgecot039lglus.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.rozkladmksumdu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
