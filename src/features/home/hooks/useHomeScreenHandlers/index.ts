@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { Keyboard } from 'react-native'
 
 import { useHomeFeature } from '../useHomeFeature'
 
@@ -20,6 +21,8 @@ export const useHomeScreenHandlers = () => {
     hideGroups()
 
     clearGroupsSearch()
+
+    Keyboard.dismiss()
   }, [hideGroups, clearGroupsSearch])
 
   const onGroupSelect = useCallback(
