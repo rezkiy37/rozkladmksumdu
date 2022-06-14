@@ -3,7 +3,7 @@ import LocalizedStrings from 'react-localization'
 import { Locale } from '@app/types/entities/Locale'
 
 export const strings = new LocalizedStrings({
-  [Locale.UA]: {
+  [Locale.EN]: {
     general: {
       scheduleType: {
         numerator: 'Numerator',
@@ -47,7 +47,7 @@ export const strings = new LocalizedStrings({
           loading: 'Loading...',
         },
         collageRoute: {
-          title: 'Collage route',
+          title: 'College route',
         },
         switchTheme: {
           title: 'Change theme mode',
@@ -86,6 +86,94 @@ export const strings = new LocalizedStrings({
             order: '№ {0}',
             auditory: 'Auditory №{0}',
             teacher: 'Teacher - {0}',
+          },
+        },
+      },
+    },
+  },
+  [Locale.UA]: {
+    general: {
+      scheduleType: {
+        numerator: 'Чисельник',
+        denominator: 'Знаменник',
+      },
+      daysOfWeek: {
+        '1': 'Понеділок',
+        '2': 'Вівторок',
+        '3': 'Середа',
+        '4': 'Четвер',
+        '5': 'П’ятниця',
+        '6': 'Субота',
+        '7': 'Неділя',
+      },
+    },
+    errors: {
+      linking: {
+        unavailableOpenLink: 'Посилання недоступне для відкриття',
+      },
+    },
+    navigation: {
+      home: {
+        home: {
+          title: 'Головна',
+        },
+        groupSchedule: {
+          title: 'Група: {0}',
+          fallbackTitle: 'Розклад за групою',
+        },
+        labs: {
+          title: 'Усі лабораторні',
+        },
+      },
+    },
+    components: {
+      appVersion: {
+        title: 'Версія: {0}',
+      },
+      button: {
+        basic: {
+          loading: 'Загрузка...',
+        },
+        collageRoute: {
+          title: 'Маршрут до коледжу',
+        },
+        switchTheme: {
+          title: 'Змінити тему',
+        },
+        backHome: {
+          title: 'Повернутися на головну',
+        },
+      },
+    },
+    features: {
+      home: {
+        components: {
+          button: {
+            showLabs: {
+              title: 'Показати всі лабораторні',
+            },
+            selectGroup: {
+              title: 'Виберіть групу',
+            },
+            groupSelection: {
+              title: 'Вибрати групу: {0}',
+            },
+          },
+          groupsBottomSheet: {
+            inputPlaceholder: 'Введіть групу ...',
+          },
+        },
+      },
+      groupSchedule: {
+        components: {
+          scheduleListHeader: {
+            title: '{0} - {1}',
+          },
+          scheduleItem: {
+            cancelledLesson: 'Пара скасована',
+            order: '№ {0}',
+            auditory: 'Аудиторія №{0}',
+            teacher: 'Викладач - {0}',
           },
         },
       },
