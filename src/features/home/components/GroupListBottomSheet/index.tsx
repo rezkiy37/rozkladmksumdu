@@ -43,13 +43,21 @@ const GroupsBottomSheet: React.FC = observer(() => {
 
   const renderItemSeparator = useCallback(() => <Separator />, [])
 
-  useEffect(() => {
+  const handleKeyboard = useCallback(() => {
+    if (Platform.OS === 'android') {
+      return
+    }
+
     if (groupsVisible) {
       inputRef.current?.focus()
     } else {
       inputRef.current?.blur()
     }
   }, [groupsVisible])
+
+  useEffect(() => {
+    handleKeyboard()
+  }, [handleKeyboard])
 
   return (
     <BottomSheet
