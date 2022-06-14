@@ -149,8 +149,8 @@ android {
         applicationId "com.rozkladmksumdu"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "2022.06.12.1-debug"
+        versionCode 4
+        versionName "2022.06.14-debug"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
         resValue "string", "build_config_package", defaultConfig.applicationId
 
