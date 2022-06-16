@@ -1,6 +1,6 @@
 {
   "name": "rozkladmksumdu",
-  "version": "2022.06.12.1-debug",
+  "version": "2022.06.14-debug",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
