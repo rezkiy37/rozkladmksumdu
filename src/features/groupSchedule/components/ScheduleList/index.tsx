@@ -3,14 +3,13 @@ import { FlatList } from 'react-native'
 
 import { observer } from 'mobx-react'
 
-import { useGroupScheduleFeature } from '../../hooks'
-import ScheduleCard from '../ScheduleCard'
-
 import Loader from '@app/components/Loader'
 import { useThemedStyles } from '@app/hooks/useThemedStyles'
 import { DayOfWeek } from '@app/types/entities/DayOfWeek'
 
 import { styles } from './styles'
+import { useGroupScheduleFeature } from '../../hooks'
+import ScheduleCard from '../ScheduleCard'
 
 const ScheduleList: React.FC = observer(() => {
   const themedStyles = useThemedStyles(styles)

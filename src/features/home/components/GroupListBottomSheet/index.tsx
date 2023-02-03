@@ -4,9 +4,6 @@ import { ListRenderItem, Platform, TextInput } from 'react-native'
 import { BottomSheetFlatList, BottomSheetTextInput } from '@gorhom/bottom-sheet'
 import { observer } from 'mobx-react'
 
-import { useHomeFeature, useHomeScreenHandlers } from '../../hooks'
-import { GroupSelectionButton } from '../Button'
-
 import { strings } from '@app/assets/locale/strings'
 import BottomSheet from '@app/components/BottomSheet'
 import Separator from '@app/components/Separator'
@@ -15,6 +12,8 @@ import { useThemedStyles } from '@app/hooks/useThemedStyles'
 import { Group } from '@app/models/Group'
 
 import { styles } from './styles'
+import { useHomeFeature, useHomeScreenHandlers } from '../../hooks'
+import { GroupSelectionButton } from '../Button'
 
 const GroupsBottomSheet: React.FC = observer(() => {
   const inputRef = useRef<TextInput>()

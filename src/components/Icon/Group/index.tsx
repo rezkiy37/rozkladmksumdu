@@ -2,9 +2,9 @@ import React from 'react'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-import { IconProps } from '../types'
-
 import { useTheme } from '@app/hooks/useTheme'
+
+import { IconProps } from '../types'
 
 const Group: React.FC<IconProps> = ({ style }) => {
   const { sizes, colors } = useTheme()

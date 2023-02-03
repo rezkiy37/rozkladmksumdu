@@ -3,9 +3,6 @@ import { FlatList, View } from 'react-native'
 
 import { observer } from 'mobx-react'
 
-import { useGroupScheduleFeature } from '../../hooks'
-import ScheduleItem from '../ScheduleItem'
-
 import { strings } from '@app/assets/locale/strings'
 import Separator from '@app/components/Separator'
 import { Subheading } from '@app/components/Typography'
@@ -14,6 +11,8 @@ import { Schedule } from '@app/models/Schedule'
 
 import { styles } from './styles'
 import { Props } from './types'
+import { useGroupScheduleFeature } from '../../hooks'
+import ScheduleItem from '../ScheduleItem'
 
 const ScheduleCard: React.FC<Props> = observer(({ dayOfWeek }) => {
   const themedStyles = useThemedStyles(styles)

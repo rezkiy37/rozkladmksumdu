@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
 
-import Basic from '../Basic'
-
 import { strings } from '@app/assets/locale/strings'
 import { CollageRouteIcon } from '@app/components/Icon'
 import { useLinking } from '@app/hooks/useLinking'
+
+import Basic from '../Basic'
 
 const CollageRoute: React.FC = () => {
   const { openCollageLocation } = useLinking()

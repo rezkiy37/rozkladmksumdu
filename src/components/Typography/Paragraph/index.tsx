@@ -1,11 +1,10 @@
 import React from 'react'
 import { Text } from 'react-native'
 
-import { TypographyProps } from '../types'
-
 import { useThemedStyles } from '@app/hooks/useThemedStyles'
 
 import { styles } from './styles'
+import { TypographyProps } from '../types'
 
 const Paragraph: React.FC<TypographyProps> = ({
   style,

@@ -1,11 +1,11 @@
 import { useCallback } from 'react'
 import { Keyboard } from 'react-native'
 
-import { useHomeFeature } from '../useHomeFeature'
-
 import { keyboardHideDuration } from '@app/constants/keyboardHideDuration'
 import { useNavigationActions } from '@app/hooks/useNavigationActions/index'
 import { Group } from '@app/models/Group'
+
+import { useHomeFeature } from '../useHomeFeature'
 
 export const useHomeScreenHandlers = () => {
   const { navigateToGroupSchedule, navigateToLabs } = useNavigationActions()

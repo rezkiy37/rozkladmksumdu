@@ -3,13 +3,12 @@ import { View } from 'react-native'
 
 import { observer } from 'mobx-react'
 
-import { useGroupScheduleFeature } from '../../hooks'
-
 import { strings } from '@app/assets/locale/strings'
 import { Subheading } from '@app/components/Typography'
 import { useThemedStyles } from '@app/hooks/useThemedStyles'
 
 import { styles } from './styles'
+import { useGroupScheduleFeature } from '../../hooks'
 
 const ScheduleListHeader: React.FC = observer(() => {
   const { selectedGroup, scheduleType } = useGroupScheduleFeature()

@@ -2,10 +2,10 @@ import { useCallback, useEffect } from 'react'
 
 import { RouteProp, useRoute } from '@react-navigation/native'
 
-import { useGroupScheduleFeature } from '../useGroupScheduleFeature'
-
 import { HomeNavigationParams } from '@app/navigation/home/NavigationParams'
 import { HomeScreenNames } from '@app/navigation/home/ScreenNames'
+
+import { useGroupScheduleFeature } from '../useGroupScheduleFeature'
 
 // TODO: Figure the situation with unmounting out
 export const useGroupScheduleScreen = () => {

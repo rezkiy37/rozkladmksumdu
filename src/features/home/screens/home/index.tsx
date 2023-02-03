@@ -1,10 +1,10 @@
 import React from 'react'
 
+import Container from '@app/components/Container'
+
 import { SelectGroupButton, ShowLabsButton } from '../../components/Button'
 import GroupsBottomSheet from '../../components/GroupListBottomSheet'
 import { useHomeScreen } from '../../hooks'
-
-import Container from '@app/components/Container'
 
 // TODO: Refine about schedule changes implementation
 const HomeScreen: React.FC = () => {
