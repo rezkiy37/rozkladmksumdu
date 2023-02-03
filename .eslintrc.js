@@ -66,15 +66,12 @@ module.exports = {
           {
             pattern: '@app/**',
             group: 'internal',
-            position: 'after',
+            position: 'before',
           },
         ],
         groups: [
           ['builtin', 'external'],
-          ['internal', 'parent', 'index'],
-          ['sibling'],
-          ['type'],
-          ['object'],
+          ['sibling', 'object', 'type', 'internal', 'parent', 'index'],
         ],
         alphabetize: {
           order: 'asc',
