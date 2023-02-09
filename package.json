@@ -37,6 +37,7 @@
     "react-native-device-info": "^8.7.1",
     "react-native-flipper": "^0.144.0",
     "react-native-gesture-handler": "^2.4.2",
+    "react-native-google-one-tap-signin": "^1.0.5",
     "react-native-reanimated": "^2.8.0",
     "react-native-safe-area-context": "^4.2.5",
     "react-native-screens": "^3.13.1",
