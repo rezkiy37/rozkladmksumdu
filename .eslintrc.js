@@ -75,7 +75,7 @@ module.exports = {
         ],
         alphabetize: {
           order: 'asc',
-          caseInsensitive: true,
+          caseInsensitive: false,
         },
         pathGroupsExcludedImportTypes: [],
       },
