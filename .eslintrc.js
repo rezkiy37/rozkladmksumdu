@@ -73,10 +73,10 @@ module.exports = {
           ['builtin', 'external'],
           ['sibling', 'object', 'type', 'internal', 'parent', 'index'],
         ],
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: false,
-        },
+        // alphabetize: {
+        //   order: 'asc',
+        //   caseInsensitive: true,
+        // },
         pathGroupsExcludedImportTypes: [],
       },
     ],
