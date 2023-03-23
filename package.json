@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "start-reset-cache": "react-native start --reset-cache",
+    "start-reset-cache": "watchman watch-del-all && react-native start --reset-cache",
     "install-deps": "yarn install && cd ios && arch -x86_64 pod install && cd ..",
     "clean-cache": "watchman watch-del-all && cd ios && rm -f Podfile.lock && cd .. && rm -rf node_modules",
     "test": "jest",
