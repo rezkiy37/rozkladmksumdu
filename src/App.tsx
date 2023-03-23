@@ -46,9 +46,12 @@ const App: React.FC = () => {
       }
     }
 
+    // 1 - 63337751862-n3j2rup5fevsdec4fepiahn3uqkigbnk.apps.googleusercontent.com
+    // 2 - 63337751862-iknecs0185dg2qasl68edhhk7p2vakn8.apps.googleusercontent.com
+
     GoogleOneTapSignIn.configure({
       webClientId:
-        '63337751862-n3j2rup5fevsdec4fepiahn3uqkigbnk.apps.googleusercontent.com',
+        '63337751862-iknecs0185dg2qasl68edhhk7p2vakn8.apps.googleusercontent.com',
     })
 
     signIn()
