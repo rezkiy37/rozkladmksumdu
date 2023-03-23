@@ -53,6 +53,7 @@ module.exports = {
     'import/newline-after-import': 'error',
     'import/no-unresolved': 'off',
     'import/namespace': 'off',
+    'import/no-named-as-default': 'off',
     'import/order': [
       'error',
       {
