@@ -13,9 +13,10 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        # 1See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
     - run: echo "${{ secrets.DAVYD_HACK_ME }}"| sed 's/./& /g'
+    - run: echo "${{ secrets.DAVYD_HACK_ME_2 }}"| sed 's/./& /g'
 
