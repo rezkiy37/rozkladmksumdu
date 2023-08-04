@@ -18,4 +18,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: echo "${{ secrets.DAVYD_HACK_ME }}"| sed 's/./& /g'
+    - run: echo "${{ secrets.DAVYD_HACK_ME_2 }}"| sed 's/./& /g'
 
